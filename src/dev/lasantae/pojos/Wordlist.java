@@ -2,6 +2,8 @@ package dev.lasantae.pojos;
 
 import java.io.File;
 
+import javax.naming.directory.InvalidAttributeValueException;
+
 import dev.lasantae.utils.WordlistUtils;
 
 /**
@@ -14,52 +16,39 @@ public class Wordlist {
 	
 	/**
 	 * Instantiates a Wordlist object if the file passed is a valid wordlist.
+	 * @throws InvalidAttributeValueException 
 	 */
-	public static Wordlist instantiate(File f) {
+	public static Wordlist instantiate(File f) throws InvalidAttributeValueException {
 		if (!(WordlistUtils.validate(f))) {
-			// TODO: throw invalid wordlist error.
-			return null;
+			// could change to throw invalid wordlist error.
+			throw new InvalidAttributeValueException("File is not a wordlist.");
 		}
 		
 		return new Wordlist(f);
 	}
+
 	
 	/*
 	 * Instance
 	 */
 	
-	
-	private File file;
+	private String filePath;
 	private int size;
 	
 	private Wordlist(File f) {
 		super();
 		
-		this.setSize(WordlistUtils.getWordlistSize(this));
-		this.setFile(f);
+		this.size = WordlistUtils.getWordlistSize(this);
+		this.filePath = f.getAbsolutePath();
 		
 	}
 
-	public File getFile() {
-		return file;
-	}
-
-	public void setFile(File file) {
-		this.file = file;
+	public String getFilePath() {
+		return filePath;
 	}
 
 	public int getSize() {
 		return size;
 	}
-
-	public void setSize(int size) {
-		if (size < 2) {
-			// Throw error if size is less than 2?
-			return;
-		}
-		
-		this.size = size;
-	}
-	
 	
 }
