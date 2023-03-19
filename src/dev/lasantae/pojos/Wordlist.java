@@ -38,8 +38,8 @@ public class Wordlist {
 	private Wordlist(File f) {
 		super();
 		
-		this.size = WordlistUtils.getWordlistSize(this);
 		this.filePath = f.getAbsolutePath();
+		this.size = WordlistUtils.getWordlistSize(this);
 		
 	}
 
