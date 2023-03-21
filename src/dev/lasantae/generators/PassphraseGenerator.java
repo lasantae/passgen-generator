@@ -8,17 +8,17 @@ import java.security.SecureRandom;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
+import dev.lasantae.Cases;
 import dev.lasantae.Wordlist;
 import dev.lasantae.utils.WordlistUtils;
 
 /**
  * @author Ernesto Rosa La Santa
- *
+ *	
  */
 public class PassphraseGenerator {
 	
-	public static String getPassphrase(Wordlist w, int numWords, String wordSeparator, boolean isLowercase, boolean isUppercase,
-								  boolean isTitleCase) throws InvalidAttributeValueException {
+	public static String getPassphrase(Wordlist w, int numWords, String wordSeparator, Cases c) throws InvalidAttributeValueException {
 		// TODO: Generate Passphrase.
 		
 		StringBuilder passphrase = new StringBuilder();
@@ -31,12 +31,10 @@ public class PassphraseGenerator {
 			int randomInt = secureRandom.nextInt(w.getSize() + 1);
 			String word = WordlistUtils.getWord(w, randomInt);
 			
-			if (isLowercase) {
-				word.toLowerCase();
-			} else if (isTitleCase) {
-				word = word.substring(0, 1).toUpperCase().concat(word.substring(1));
-			} else {
-				word.toUpperCase();
+			switch (c) {
+				case TITLE_CASE -> word = word.substring(0, 1).toUpperCase().concat(word.substring(1));
+				case LOWERCASE -> word.toLowerCase();
+				case UPPERCASE -> word.toUpperCase();
 			}
 			
 			// add word and word separator (delimiter)
