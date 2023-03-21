@@ -7,7 +7,7 @@ import javax.naming.directory.InvalidAttributeValueException;
 import dev.lasantae.utils.WordlistUtils;
 
 /**
- * A wordlist should be a comma delimited file with more than 1 word. 
+ * A wordlist should be a file containing more than one word, each separated by a new line. 
  */
 public class Wordlist {
 	/*

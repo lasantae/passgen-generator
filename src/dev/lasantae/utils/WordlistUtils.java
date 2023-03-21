@@ -10,20 +10,30 @@ import javax.naming.directory.InvalidAttributeValueException;
 import dev.lasantae.pojos.Wordlist;
 
 public class WordlistUtils {
+	/**
+	 *  Checks if wordlist is a text file, if it contains more than one word and if it is 
+	 *  delimited by new lines.
+	 *  
+	 *  @param wordlist - File object of the wordlist.
+	 *  @return boolean value that indicates if wordlist is valid.
+	 */ 
 	public static boolean validate(File wordlist) {
-		/*
-		 *  TODO: Check if wordlist is either a txt or a csv file and if it is comma delimited. 
-		 *  The file is comma delimited if it contains a comma.
-		 */ 
+		
 		boolean isValid = false;
 		
 		if (!(wordlist.isFile())) return isValid;
-		if (!(getExtension(wordlist).equals("csv")) && !(getExtension(wordlist).equals("txt"))) return isValid;
+		if (!(getExtension(wordlist).equals("txt"))) return isValid;
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(wordlist))) {
-			String line = br.readLine();
-			if (line.contains(",")) isValid = true;
 			
+			 // Check if there is more than one word and if they are new line delimited.
+			String line = br.readLine();
+			if (line.isBlank()) return isValid;
+			if (line.indexOf("\n") != -1) return isValid;
+			line = br.readLine();
+			if (line.isBlank()) return isValid;
+			
+			isValid = true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,8 +71,6 @@ public class WordlistUtils {
 		try (BufferedReader br = new BufferedReader(new FileReader(wordlist))) {
 			for (int i = 0; i < n; i++) {
 				word = br.readLine();
-				int commaIndex = word.indexOf(",");
-				word = word.substring(0, commaIndex);
 				
 				if (word == null) break;
 			}
