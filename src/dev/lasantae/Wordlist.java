@@ -1,4 +1,4 @@
-package dev.lasantae.pojos;
+package dev.lasantae;
 
 import java.io.File;
 

@@ -8,7 +8,7 @@ import java.security.SecureRandom;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
-import dev.lasantae.pojos.Wordlist;
+import dev.lasantae.Wordlist;
 import dev.lasantae.utils.WordlistUtils;
 
 /**
@@ -18,7 +18,7 @@ import dev.lasantae.utils.WordlistUtils;
 public class PassphraseGenerator {
 	
 	public static String getPassphrase(Wordlist w, int numWords, String wordSeparator, boolean isLowercase, boolean isUppercase,
-								  boolean isTitleCase, boolean includeNumbers, boolean includeSymbols) throws InvalidAttributeValueException {
+								  boolean isTitleCase) throws InvalidAttributeValueException {
 		// TODO: Generate Passphrase.
 		
 		StringBuilder passphrase = new StringBuilder();

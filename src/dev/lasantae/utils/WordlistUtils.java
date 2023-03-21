@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
-import dev.lasantae.pojos.Wordlist;
+import dev.lasantae.Wordlist;
 
 public class WordlistUtils {
 	/**
