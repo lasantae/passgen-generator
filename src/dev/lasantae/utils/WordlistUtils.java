@@ -57,11 +57,12 @@ public class WordlistUtils {
 		
 		File wordlist = new File(w.getFilePath());
 		String word = "";
-		int lineNumber = 0;
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(wordlist))) {
 			for (int i = 0; i < n; i++) {
 				word = br.readLine();
+				int commaIndex = word.indexOf(",");
+				word = word.substring(0, commaIndex);
 				
 				if (word == null) break;
 			}
