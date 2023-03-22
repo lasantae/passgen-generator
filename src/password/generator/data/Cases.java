@@ -1,7 +1,7 @@
 /**
  * 
  */
-package dev.lasantae;
+package password.generator.data;
 
 /**
  * @author me

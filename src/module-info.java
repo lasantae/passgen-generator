@@ -1,5 +1,7 @@
 module dev.lasantae.passwordGeneratorModule {
 	requires java.naming;
 	
-	exports dev.lasantae;
+	exports password.generator.data;
+	exports password.generator.generators;
+	exports password.generator.utils;
 }

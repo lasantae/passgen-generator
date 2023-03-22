@@ -1,16 +1,16 @@
 /**
  * 
  */
-package dev.lasantae.generators;
+package password.generator.generators;
 
 import java.io.File;
 import java.security.SecureRandom;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
-import dev.lasantae.Cases;
-import dev.lasantae.Wordlist;
-import dev.lasantae.utils.WordlistUtils;
+import password.generator.data.Cases;
+import password.generator.data.Wordlist;
+import password.generator.generators.utils.WordlistUtils;
 
 /**
  * @author Ernesto Rosa La Santa

@@ -1,10 +1,10 @@
-package dev.lasantae;
+package password.generator.data;
 
 import java.io.File;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
-import dev.lasantae.utils.WordlistUtils;
+import password.generator.generators.utils.WordlistUtils;
 
 /**
  * A wordlist should be a file containing more than one word, each separated by a new line. 

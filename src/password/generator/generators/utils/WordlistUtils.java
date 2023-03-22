@@ -1,4 +1,4 @@
-package dev.lasantae.utils;
+package password.generator.generators.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
-import dev.lasantae.Wordlist;
+import password.generator.data.Wordlist;
 
 public class WordlistUtils {
 	/**
@@ -89,10 +89,4 @@ public class WordlistUtils {
 		return extension;
 	}
 	
-	/**
-	 * Work-in-progress; not implemented.
-	 */
-	private static void calculatePasswordStrength() {
-		
-	}
 }

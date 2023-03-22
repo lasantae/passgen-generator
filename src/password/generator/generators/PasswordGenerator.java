@@ -1,7 +1,7 @@
 /**
  * 
  */
-package dev.lasantae.generators;
+package password.generator.generators;
 
 import java.security.SecureRandom;
 
