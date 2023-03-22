@@ -35,7 +35,7 @@ public class PassphraseGenerator {
 			// get random word
 			SecureRandom secureRandom = new SecureRandom();
 			
-			int randomInt = secureRandom.nextInt(w.getSize() + 1);
+			int randomInt = secureRandom.nextInt(1, w.getSize() + 1);
 			String word = WordlistUtils.getWord(w, randomInt);
 			
 			switch (c) {
