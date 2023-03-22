@@ -4,7 +4,7 @@
 package password.generator.data;
 
 /**
- * @author me
+ * @author Ernesto Rosa La Santa
  *
  */
 public enum Cases {

@@ -3,7 +3,6 @@
  */
 package password.generator.generators;
 
-import java.io.File;
 import java.security.SecureRandom;
 
 import javax.naming.directory.InvalidAttributeValueException;
@@ -14,10 +13,18 @@ import password.generator.generators.utils.WordlistUtils;
 
 /**
  * @author Ernesto Rosa La Santa
- *	
+ *	Used for passphrase generation.
  */
 public class PassphraseGenerator {
-	
+	/**
+	 * Generates a passphrase.
+	 * @param w - Wordlist
+	 * @param numWords - the number of words in the passphrase.
+	 * @param wordSeparator - delimiter.
+	 * @param c - TitleCase, lowercase, UPPERCASE.
+	 * @return String with the value of the generated passphrase.
+	 * @throws InvalidAttributeValueException
+	 */
 	public static String getPassphrase(Wordlist w, int numWords, String wordSeparator, Cases c) throws InvalidAttributeValueException {
 		// TODO: Generate Passphrase.
 		

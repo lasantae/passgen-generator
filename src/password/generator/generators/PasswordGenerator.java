@@ -7,7 +7,7 @@ import java.security.SecureRandom;
 
 /**
  * @author Ernesto Rosa La Santa
- *
+ *	Used for password generation.
  */
 public class PasswordGenerator {
 	

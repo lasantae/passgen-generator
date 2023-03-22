@@ -9,6 +9,10 @@ import javax.naming.directory.InvalidAttributeValueException;
 
 import password.generator.data.Wordlist;
 
+/**
+ * @author Ernesto Rosa La Santa.
+ *	Utilities for the PassphraseGenerator class.
+ */
 public class WordlistUtils {
 	/**
 	 *  Checks if wordlist is a text file, if it contains more than one word and if it is 
@@ -42,6 +46,11 @@ public class WordlistUtils {
 		 return isValid;
 	}
 	
+	/**
+	 * Gets the amount of words inside a Wordlist object.
+	 * @param w - Wordlist
+	 * @return int value of the amount of words in the wordlist.
+	 */
 	public static int getWordlistSize(Wordlist w) {
 		// TODO: Read the entire wordlist and return the number of words separated by commas.
 		int size = 0;
@@ -57,6 +66,13 @@ public class WordlistUtils {
 		return size;
 	}
 	
+	/**
+	 * Returns the nth word in the passed wordlist.
+	 * @param w - Wordlist
+	 * @param n - Word number to return from the wordlist.
+	 * @return String value of the nth word.
+	 * @throws InvalidAttributeValueException
+	 */
 	public static String getWord(Wordlist w, int n) throws InvalidAttributeValueException {
 		/*
 		 *  TODO: Return the nth word.
@@ -64,6 +80,7 @@ public class WordlistUtils {
 		 */
 
 		if (n < 1) throw new InvalidAttributeValueException("Unable to get word.");
+		if (n > w.getSize()) n = w.getSize();
 		
 		File wordlist = new File(w.getFilePath());
 		String word = "";
@@ -82,6 +99,11 @@ public class WordlistUtils {
 		return word;
 	}
 	
+	/**
+	 * Gets the extension of a File object.
+	 * @param f - File object
+	 * @return String of the file extension. (txt, csv, md)
+	 */
 	private static String getExtension(File f) {
 		String fileName = f.getName();
 		String extension = fileName.substring(fileName.length() - 3, fileName.length());
