@@ -7,7 +7,6 @@ import java.security.SecureRandom;
 
 import javax.naming.directory.InvalidAttributeValueException;
 
-import password.generator.data.Cases;
 import password.generator.data.Wordlist;
 import password.generator.generators.utils.WordlistUtils;
 
@@ -16,6 +15,9 @@ import password.generator.generators.utils.WordlistUtils;
  *	Used for passphrase generation.
  */
 public class PassphraseGenerator {
+	
+	public enum Cases {TITLE_CASE, LOWERCASE, UPPERCASE};
+	
 	/**
 	 * Generates a passphrase.
 	 * @param w - Wordlist

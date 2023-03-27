@@ -1,4 +1,4 @@
-module dev.lasantae.passwordGeneratorModule {
+module com.lasantae.passwordGeneratorModule {
 	requires java.naming;
 	
 	exports password.generator.data;
