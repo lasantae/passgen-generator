@@ -31,7 +31,6 @@ public class WordlistUtils {
 			 // Check if there is more than one word and if they are new line delimited.
 			String line = br.readLine();
 			if (line.isBlank()) return isValid;
-			if (line.contains("\n")) return isValid;
 			line = br.readLine();
 			if (line.isBlank()) return isValid;
 			
