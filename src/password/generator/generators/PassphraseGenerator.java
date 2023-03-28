@@ -3,12 +3,10 @@
  */
 package password.generator.generators;
 
-import java.security.SecureRandom;
-
-import javax.naming.directory.InvalidAttributeValueException;
-
 import password.generator.data.Wordlist;
 import password.generator.generators.utils.WordlistUtils;
+
+import java.security.SecureRandom;
 
 /**
  * @author Ernesto Rosa La Santa
@@ -16,7 +14,7 @@ import password.generator.generators.utils.WordlistUtils;
  */
 public class PassphraseGenerator {
 	
-	public enum Cases {TITLE_CASE, LOWERCASE, UPPERCASE};
+	public enum Cases {TITLE_CASE, LOWERCASE, UPPERCASE}
 	
 	/**
 	 * Generates a passphrase.
@@ -25,9 +23,8 @@ public class PassphraseGenerator {
 	 * @param wordSeparator - delimiter.
 	 * @param c - TitleCase, lowercase, UPPERCASE.
 	 * @return String with the value of the generated passphrase.
-	 * @throws InvalidAttributeValueException
 	 */
-	public static String getPassphrase(Wordlist w, int numWords, String wordSeparator, Cases c) throws InvalidAttributeValueException {
+	public static String getPassphrase(Wordlist w, int numWords, String wordSeparator, Cases c){
 		// TODO: Generate Passphrase.
 		
 		StringBuilder passphrase = new StringBuilder();
@@ -42,8 +39,8 @@ public class PassphraseGenerator {
 			
 			switch (c) {
 				case TITLE_CASE -> word = word.substring(0, 1).toUpperCase().concat(word.substring(1));
-				case LOWERCASE -> word.toLowerCase();
-				case UPPERCASE -> word.toUpperCase();
+				case LOWERCASE -> word = word.toLowerCase();
+				case UPPERCASE -> word = word.toUpperCase();
 			}
 			
 			// add word and word separator (delimiter)

@@ -1,13 +1,11 @@
 package password.generator.generators.utils;
 
+import password.generator.data.Wordlist;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
-import javax.naming.directory.InvalidAttributeValueException;
-
-import password.generator.data.Wordlist;
 
 /**
  * @author Ernesto Rosa La Santa.
@@ -33,7 +31,7 @@ public class WordlistUtils {
 			 // Check if there is more than one word and if they are new line delimited.
 			String line = br.readLine();
 			if (line.isBlank()) return isValid;
-			if (line.indexOf("\n") != -1) return isValid;
+			if (line.contains("\n")) return isValid;
 			line = br.readLine();
 			if (line.isBlank()) return isValid;
 			
@@ -71,15 +69,15 @@ public class WordlistUtils {
 	 * @param w - Wordlist
 	 * @param n - Word number to return from the wordlist.
 	 * @return String value of the nth word.
-	 * @throws InvalidAttributeValueException
+	 * @throws IllegalArgumentException if the wordlist has fewer words than specified n.
 	 */
-	public static String getWord(Wordlist w, int n) throws InvalidAttributeValueException {
+	public static String getWord(Wordlist w, int n) throws IllegalArgumentException {
 		/*
 		 *  TODO: Return the nth word.
 		 *  If n > wordlist size, return the last word in the wordlist.
 		 */
 
-		if (n < 1) throw new InvalidAttributeValueException("Unable to get word.");
+		if (n < 1) throw new IllegalArgumentException("Unable to get word.");
 		if (n > w.getSize()) n = w.getSize();
 		
 		File wordlist = new File(w.getFilePath());
@@ -102,13 +100,12 @@ public class WordlistUtils {
 	/**
 	 * Gets the extension of a File object.
 	 * @param f - File object
-	 * @return String of the file extension. (txt, csv, md)
+	 * @return String of the file extension.
 	 */
 	private static String getExtension(File f) {
 		String fileName = f.getName();
-		String extension = fileName.substring(fileName.length() - 3, fileName.length());
-		
-		return extension;
+
+		return fileName.substring(fileName.length() - 3, fileName.length());
 	}
 	
 }

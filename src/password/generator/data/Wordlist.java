@@ -1,10 +1,8 @@
 package password.generator.data;
 
-import java.io.File;
-
-import javax.naming.directory.InvalidAttributeValueException;
-
 import password.generator.generators.utils.WordlistUtils;
+
+import java.io.File;
 
 /**
  * A wordlist must be a text file with more than a word, each separated by a new line. 
@@ -19,12 +17,12 @@ public class Wordlist {
 	 * Instantiates a Wordlist object if the file passed is a valid wordlist.
 	 * @param f - file object of the wordlist txt file.
 	 * @return A wordlist object if f is a valid wordlist.
-	 * @throws InvalidAttributeValueException 
+	 * @throws IllegalArgumentException if the file is not a valid wordlist.
 	 */
-	public static Wordlist instantiate(File f) throws InvalidAttributeValueException {
+	public static Wordlist instantiate(File f) throws IllegalArgumentException {
 		if (!(WordlistUtils.validate(f))) {
 			// could change to throw invalid wordlist error.
-			throw new InvalidAttributeValueException("File is not a wordlist.");
+			throw new IllegalArgumentException("File is not a wordlist.");
 		}
 		
 		return new Wordlist(f);
@@ -35,8 +33,8 @@ public class Wordlist {
 	 * Instance
 	 */
 	
-	private String filePath;
-	private int size;
+	private final String filePath;
+	private final int size;
 	
 	private Wordlist(File f) {
 		super();
