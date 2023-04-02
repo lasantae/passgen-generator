@@ -3,3 +3,4 @@
 .project
 bin/
 *.iml
+/target/
